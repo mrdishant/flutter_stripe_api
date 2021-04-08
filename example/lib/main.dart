@@ -18,14 +18,14 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   final TextEditingController controller = new CreditCardMaskedTextController();
 
   @override
   void initState() {
     super.initState();
 
-    Stripe.init('pk_test_your_stripe_key');
+    Stripe.init(
+        'pk_test_51IIp4PBFrPqvmfYIsjuBsoYE874Zl3wBrxN1Yw3iOyFU6kxxD9JQd30rY6NcZbPbttDEdn89ePP3JvGtk68RocmG00Xdp2U3Yu');
   }
 
   @override
@@ -89,7 +89,7 @@ class _MyAppState extends State<MyApp> {
 
   void _saveCard() {
     StripeCard card = new StripeCard(
-        number: '4242 4242 4242 4242', cvc: '713', expMonth: 5, expYear: 2019);
+        number: '4242 4242 4242 4242', cvc: '713', expMonth: 5, expYear: 2030);
     card.name = 'Jhonny Bravo';
     Stripe.instance.createCardToken(card).then((c) {
       print(c);
@@ -137,8 +137,10 @@ class _MyAppState extends State<MyApp> {
         'https://api.example/generate-ephemeral-key?api_version=$apiVersion';
     print(url);
 
+    // return "HelloWorld";
+
     final response = await http.get(
-      url,
+      Uri.parse(url),
       headers: _getHeaders(accessToken: _accessToken),
     );
 

@@ -9,12 +9,15 @@ description: Stripe API usage example
 # Read more about versioning at semver.org.
 version: 1.0.0+1
 
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
 dependencies:
   flutter:
     sdk: flutter
 
   stripe_api:
-        path: ../
+    path: ../
 
 dev_dependencies:
   flutter_test:
